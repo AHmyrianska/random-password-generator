@@ -65,7 +65,7 @@ pass1El.onclick = () => {
     copyToClipboard1();
 }
 
-pass1El.addEventListener("touchstart", copyToClipboard1);
+pass1El.addEventListener("touchend", copyToClipboard1);
 
 function copyToClipboard1() {
     let copyText = pass1El.innerText;
