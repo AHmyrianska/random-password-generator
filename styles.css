@@ -47,7 +47,9 @@ p {
     }
 
 .button:active {
-    border: none;
+    border: 1px solid #10B981;
+    color: #10B981;
+    background-color: white;
 }
 
 .colored {
@@ -62,17 +64,32 @@ hr {
     display: flex;
 }
 
+
 #psw-1, #psw-2 {
     width: 210px;
     height: 40px;
     background-color: #273549;
     border-radius: 6px;
-    margin: 35px 25px 0 0;
+    margin-top: 20px;
     padding-top: 5px;
     color: var(--primary-color);
     font-weight: 500;
     font-size: 16px;
     line-height: 32px;
     text-align: center;
+    
 }
+
+.passwords p:first-child {
+    margin-right: 30px;
+}
+
+
+.click {
+    margin-top: 5px;
+    font-size: 14px;
+    font-style: italic;
+    display: none;
+}
+
 

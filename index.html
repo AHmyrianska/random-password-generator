@@ -21,7 +21,17 @@
                 <p id="psw-1"></p>
                 <p id="psw-2"></p>
             </div>
+            <p id="click" class="click">Click to copy</p>
         </div>
         <script src="script.js"></script>
+        <script src="/jquery-3.6.1.js"></script>
+        <script>
+            $(document).ready(function(){
+                $("#btn").click(function(){
+                    $("#click").fadeIn(1000);
+                });
+            });
+        </script>
+       
     </body>
 </html>
