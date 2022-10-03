@@ -13,12 +13,13 @@ let button = document.getElementById("btn");
 let form = document.querySelector("form");
 let symbolsEl = document.getElementById("symbols");
 let numbersEl = document.getElementById("numbers");
+let bothEl = document.getElementById("both");
 
 function getPassLength(event) {
     event.preventDefault();
     let input = document.getElementById("length");
     passLength = input.value;
-   
+    
 }
 
 function returnPass() {
@@ -35,7 +36,7 @@ function returnPass() {
             pass += numbers[randomIndex];
         }
     }
-    if (symbolsEl.checked == false && numbersEl.checked == false) {
+    if (symbolsEl.checked == false && numbersEl.checked == false || bothEl.checked) {
     for (let i = 0; i < passLength; i++) {
         let randomIndex = Math.floor(Math.random() * characters.length);
         pass += characters[randomIndex];
@@ -46,7 +47,6 @@ function returnPass() {
 
 function generatePassword1() {
     pass1El.textContent = returnPass();
-   
 }
 
 function generatePassword2() {
@@ -62,29 +62,31 @@ button.addEventListener("click", generatePassword2);
 
 
 pass1El.onclick = () => {
-  document.execCommand("copy");
+    copyToClipboard();
 }
 
-pass1El.addEventListener("copy", (event) => {
-  event.preventDefault();
-  if (event.clipboardData) {
-    event.clipboardData.setData("text/plain", pass1El.textContent);
-    console.log(event.clipboardData.getData("text"))
+function copyToClipboard() {
+    let copyText = pass1El.innerText;
+    navigator.clipboard.writeText(copyText).then(() => {
+        // Alert the user that the action took place.
+        // Nobody likes hidden stuff being done under the hood!
+        alert("Copied to clipboard");
+    });
   }
-});
+
 
 pass2El.onclick = () => {
-    document.execCommand("copy");
+    copyToClipboard();
+}
+
+function copyToClipboard() {
+    let copyText = pass2El.innerText;
+    navigator.clipboard.writeText(copyText).then(() => {
+        // Alert the user that the action took place.
+        // Nobody likes hidden stuff being done under the hood!
+        alert("Copied to clipboard");
+    });
   }
-  
-  pass2El.addEventListener("copy", (event) => {
-    event.preventDefault();
-    if (event.clipboardData) {
-      event.clipboardData.setData("text/plain", pass2El.textContent);
-      console.log(event.clipboardData.getData("text"))
-    }
-  });
-//   'copy' explanation: https://thewebdev.info/2021/09/04/how-to-copy-a-text-string-on-click-with-javascript/
 
 
             

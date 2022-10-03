@@ -97,6 +97,8 @@ hr {
 label {
     font-size: 14px;
     font-style: italic;
+    margin-right: 15px;
+
 }
 
 fieldset {
@@ -104,6 +106,7 @@ fieldset {
     margin: 0;
     padding: 10px 0;
 }
+
 
 
 
