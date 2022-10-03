@@ -34,7 +34,7 @@
             <button type="button" class="button" id="btn">Generate passwords</button>
             <hr>
             <div class="passwords">
-                <p id="psw-1"></p>
+                <p id="psw-1" ontouchstart="copyToClipboard1(event)"></p>
                 <p id="psw-2"></p>
             </div>
             <p id="click" class="click">Click on a password to copy</p>
@@ -46,9 +46,7 @@
                 $("#btn").click(function(){
                     $("#click").fadeIn(1000);
                 });
-                $("#psw-1").click(function(){
-                        $(this).select();
-                });                
+                              
             });
         </script>
        
