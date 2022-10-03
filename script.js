@@ -65,6 +65,8 @@ pass1El.onclick = () => {
     copyToClipboard();
 }
 
+pass1El.addEventListener('touchstart', copyToClipboard);
+
 function copyToClipboard() {
     let copyText = pass1El.innerText;
     navigator.clipboard.writeText(copyText).then(() => {
