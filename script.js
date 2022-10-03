@@ -62,12 +62,12 @@ button.addEventListener("click", generatePassword2);
 
 
 pass1El.onclick = () => {
-    copyToClipboard();
+    copyToClipboard1();
 }
 
-pass1El.addEventListener('touchstart', copyToClipboard);
+pass1El.addEventListener("touchstart", copyToClipboard1);
 
-function copyToClipboard() {
+function copyToClipboard1() {
     let copyText = pass1El.innerText;
     navigator.clipboard.writeText(copyText).then(() => {
         // Alert the user that the action took place.
@@ -78,10 +78,10 @@ function copyToClipboard() {
 
 
 pass2El.onclick = () => {
-    copyToClipboard();
+    copyToClipboard2();
 }
 
-function copyToClipboard() {
+function copyToClipboard2() {
     let copyText = pass2El.innerText;
     navigator.clipboard.writeText(copyText).then(() => {
         // Alert the user that the action took place.
