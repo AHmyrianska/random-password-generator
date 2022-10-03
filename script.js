@@ -6,9 +6,15 @@ let passLength = 15;
 let pass1El = document.getElementById("psw-1");
 let pass2El = document.getElementById("psw-2");
 let button = document.getElementById("btn");
+let form = document.querySelector("form");
 // let clickEl = document.getElementById("click");
 
-
+function getPassLength(event) {
+    event.preventDefault();
+    let input = document.getElementById("length");
+    passLength = input.value;
+   
+}
 
 function generatePassword1() {
     let pass = "";
@@ -28,6 +34,8 @@ function generatePassword2() {
     }
     pass2El.textContent = pass;   
 }
+
+form.addEventListener("submit", getPassLength);
 
 button.addEventListener("click", generatePassword1); 
 button.addEventListener("click", generatePassword2); 

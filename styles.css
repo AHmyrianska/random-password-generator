@@ -25,6 +25,7 @@ h1 {
     font-family: 'Karla', sans-serif;
     font-size: 40px;
     font-weight: 800;
+    margin: 0;
 }
 
 p {
@@ -44,6 +45,7 @@ p {
     margin-bottom: 30px;
     font-weight: 500;
     font-size: 16px;
+    display: block;
     }
 
 .button:active {
@@ -91,5 +93,17 @@ hr {
     font-style: italic;
     display: none;
 }
+
+label {
+    font-size: 14px;
+    font-style: italic;
+}
+
+fieldset {
+    border: none;
+    margin: 0;
+    padding: 10px 0;
+}
+
 
 

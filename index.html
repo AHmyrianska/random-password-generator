@@ -15,6 +15,20 @@
             <h1>Generate a <br>
             <span class ="colored">random password</span></h1>
             <p>Never use an insecure password again.</p>
+            <form>
+                <label for="length" class="label">Enter password length (5-15):</label>
+                <input type="number" name="length" id="length" min="5" max="15">
+                <input type="submit" value="Submit">
+            </form>
+            <form>
+                <fieldset>
+                    <label for="symbols">Only symbols</label>
+                    <input type="radio" name="options" id="symbols" value="1">
+                    <label for="numbers">Only numbers</label>
+                    <input type="radio" name="options" id="numbers" value="2">
+                </fieldset>
+            </form>        
+            
             <button type="button" class="button" id="btn">Generate passwords</button>
             <hr>
             <div class="passwords">
