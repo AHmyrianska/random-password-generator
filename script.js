@@ -1,5 +1,9 @@
 const characters = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z","a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9","~","`","!","@","#","$","%","^","&","*","(",")","_","-","+","=","{","[","}","]",",","|",":",";","<",">",".","?",
 "/"];
+const symbols = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z","a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z","~","`","!","@","#","$","%","^","&","*","(",")","_","-","+","=","{","[","}","]",",","|",":",";","<",">",".","?",
+"/"];
+const numbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
+
 
 let passLength = 15;
 
@@ -7,7 +11,8 @@ let pass1El = document.getElementById("psw-1");
 let pass2El = document.getElementById("psw-2");
 let button = document.getElementById("btn");
 let form = document.querySelector("form");
-// let clickEl = document.getElementById("click");
+let symbolsEl = document.getElementById("symbols");
+let numbersEl = document.getElementById("numbers");
 
 function getPassLength(event) {
     event.preventDefault();
@@ -16,23 +21,36 @@ function getPassLength(event) {
    
 }
 
-function generatePassword1() {
+function returnPass() {
     let pass = "";
+    if (symbolsEl.checked) {
+        for (let i = 0; i < passLength; i++) {
+            let randomIndex = Math.floor(Math.random() * symbols.length);
+            pass += symbols[randomIndex];
+        };
+    };
+    if (numbersEl.checked) {
+        for (let i = 0; i < passLength; i++) {
+            let randomIndex = Math.floor(Math.random() * numbers.length);
+            pass += numbers[randomIndex];
+        }
+    }
+    if (symbolsEl.checked == false && numbersEl.checked == false) {
     for (let i = 0; i < passLength; i++) {
         let randomIndex = Math.floor(Math.random() * characters.length);
         pass += characters[randomIndex];
     }
-    pass1El.textContent = pass;
-    // clickEl.textContent = "Click to copy";   
+}
+    return pass;
+}
+
+function generatePassword1() {
+    pass1El.textContent = returnPass();
+   
 }
 
 function generatePassword2() {
-    let pass = "";
-    for (let i = 0; i < passLength; i++) {
-        let randomIndex = Math.floor(Math.random() * characters.length);
-        pass += characters[randomIndex];
-    }
-    pass2El.textContent = pass;   
+    pass2El.textContent = returnPass();  
 }
 
 form.addEventListener("submit", getPassLength);
